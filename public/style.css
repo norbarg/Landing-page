@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+.bebas-neue-regular {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nunito {
+    font-family: 'Nunito', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header {
+    padding: 0px 30px;
+    background: linear-gradient(
+        to top right,
+        #1d1b14 2%,
+        #101010 4%,
+        #101010 51%,
+        #2e2a18 100%
+    );
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    max-width: 1380px;
+    justify-content: space-between;
+}
+
+.image-block img {
+    width: 650px;
+    max-width: 100%;
+}
+
+.text-block {
+    text-align: left;
+    margin: 50px 0px;
+    max-width: 555px;
+}
+
+.text-block h1 {
+    margin: 0;
+    font-size: 58px;
+    text-transform: uppercase;
+}
+
+.text-block p {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: left;
+    }
+
+    .text-block {
+        text-align: left;
+    }
+    .image-block img {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .text-block h1 {
+        font-size: 40px;
+    }
+    .text-block p {
+        font-size: 20px;
+    }
+}
