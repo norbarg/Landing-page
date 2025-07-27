@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: sans-serif;
     background-color: #000;
     color: #fff;
 }
@@ -17,6 +16,7 @@ body {
     font-style: normal;
 }
 
+/* header */
 .header {
     padding: 0px 30px;
     background: linear-gradient(
@@ -31,8 +31,8 @@ body {
 .header-content {
     display: flex;
     align-items: center;
-    max-width: 1380px;
-    justify-content: space-between;
+    max-width: 1400px;
+    justify-content: space-around;
 }
 
 .image-block img {
@@ -48,15 +48,60 @@ body {
 
 .text-block h1 {
     margin: 0;
-    font-size: 58px;
+    font-size: 72px;
     text-transform: uppercase;
 }
 
 .text-block p {
-    font-size: 24px;
+    font-size: 26px;
+}
+
+/* feature */
+.features-icons {
+    padding: 41px 76px;
+    background-color: #d9d9d9;
+    color: #101010;
+}
+
+.features-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    row-gap: 35px;
+}
+
+.feature {
+    flex: 1 1 320px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.feature img {
+    width: 145px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.feature p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 768px) {
+    /* header  */
     .header-content {
         flex-direction: row;
         justify-content: left;
@@ -68,13 +113,33 @@ body {
     .image-block img {
         display: none;
     }
+
+    /* feature */
+    .features-icons {
+        padding: 30px 41px;
+    }
+
+    .features-container {
+        row-gap: 35px;
+        align-items: center;
+    }
 }
 
 @media (max-width: 360px) {
+    /* header  */
     .text-block h1 {
-        font-size: 40px;
+        font-size: 41px;
     }
     .text-block p {
         font-size: 20px;
+    }
+
+    /* feature */
+    .features-icons {
+        padding: 20px 41px;
+    }
+
+    .feature img {
+        width: 115px;
     }
 }

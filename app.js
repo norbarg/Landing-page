@@ -19,11 +19,52 @@ function Header() {
         </header>
     );
 }
+function FeaturesSection() {
+    return (
+        <section className="features-icons">
+            <div className="features-container">
+                <div className="feature">
+                    <img src="images/icon1.png" alt="Interstellar" />
+                    <h3>INTERSTELLAR EXPLORATION</h3>
+                    <p>
+                        Uncover the secrets of deep space missions and the
+                        future of human travel beyond our solar system.
+                    </p>
+                </div>
+                <div className="feature">
+                    <img src="images/icon2.png" alt="Astronomy" />
+                    <h3>ASTRONOMICAL DISCOVERIES</h3>
+                    <p>
+                        Dive into the latest findings in astronomy, from
+                        exoplanets to black holes and dark matter.
+                    </p>
+                </div>
+                <div className="feature">
+                    <img src="images/icon3.png" alt="Missions" />
+                    <h3>LIVE SPACE MISSIONS</h3>
+                    <p>
+                        Track real-time satellite orbits and follow ongoing NASA
+                        and ESA missions.
+                    </p>
+                </div>
+                <div className="feature">
+                    <img src="images/icon4.png" alt="Education" />
+                    <h3>COSMIC EDUCATION</h3>
+                    <p>
+                        Learn about space through interactive articles, videos,
+                        and virtual tours of the universe.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 function App() {
     return (
         <div>
             <Header />
+            <FeaturesSection />
         </div>
     );
 }
