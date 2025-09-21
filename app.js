@@ -89,30 +89,42 @@ function PrimaryContentSection() {
 function SecondaryContentSection() {
     const [expandedBlock, setExpandedBlock] = React.useState(null);
     const [isClosing, setIsClosing] = React.useState(false);
-    const ANIM_MS = 1000; // ms — должна совпадать с CSS transition duration
+    const [isOpening, setIsOpening] = React.useState(false);
+
+    const OPEN_MS = 2000; // = --open-ms
+    const CLOSE_MS = 800; // = --close-ms
 
     const handleViewMore = (block) => {
-        // если уже в процессе закрытия — отменяем закрытие и открываем новый
         if (isClosing) setIsClosing(false);
+
+        // 1) сначала помечаем, какая карточка будет expanded/hidden
         setExpandedBlock(block);
+
+        // 2) дождёмся рендера этих классов...
+        requestAnimationFrame(() => {
+            // ...ещё один rAF, чтобы браузер сделал layout/paint,
+            // и только потом даём класс is-opening — общий старт для обеих карточек
+            requestAnimationFrame(() => {
+                setIsOpening(true);
+                // снимем флаг ровно по завершении длительности открытия
+                setTimeout(() => setIsOpening(false), OPEN_MS);
+            });
+        });
     };
 
     const handleBack = () => {
-        // запускаем "обратную" анимацию
         setIsClosing(true);
-
-        // по окончании анимации — убираем expandedBlock и флаг closing
         setTimeout(() => {
             setExpandedBlock(null);
-            // небольшая пауза чтобы класс is-closing успел снять (не обязательно)
-            setTimeout(() => setIsClosing(false), 20);
-        }, ANIM_MS);
+            setIsClosing(false);
+        }, CLOSE_MS);
     };
 
     const containerClass =
         'cards-container' +
         (expandedBlock ? ' is-expanded expanded--' + expandedBlock : '') +
-        (isClosing ? ' is-closing' : '');
+        (isClosing ? ' is-closing' : '') +
+        (isOpening ? ' is-opening' : '');
 
     const virtualClass =
         expandedBlock === null
