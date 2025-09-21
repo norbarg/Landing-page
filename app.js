@@ -96,17 +96,10 @@ function SecondaryContentSection() {
 
     const handleViewMore = (block) => {
         if (isClosing) setIsClosing(false);
-
-        // 1) сначала помечаем, какая карточка будет expanded/hidden
         setExpandedBlock(block);
-
-        // 2) дождёмся рендера этих классов...
         requestAnimationFrame(() => {
-            // ...ещё один rAF, чтобы браузер сделал layout/paint,
-            // и только потом даём класс is-opening — общий старт для обеих карточек
             requestAnimationFrame(() => {
                 setIsOpening(true);
-                // снимем флаг ровно по завершении длительности открытия
                 setTimeout(() => setIsOpening(false), OPEN_MS);
             });
         });
@@ -274,6 +267,81 @@ function SecondaryContentSection() {
     );
 }
 
+function Footer() {
+    return (
+        <footer className="footer">
+            <div className="footer-wrap">
+                <div
+                    className="footer-side footer-side--left"
+                    aria-hidden="true"
+                >
+                    <img src="images/left suns.png" alt="left suns" />
+                </div>
+
+                <div className="footer-center">
+                    <div className="footer-links">
+                        <div className=" nunito footer-group">
+                            <h4>Our service</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">About us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Our work</a>
+                                </li>
+                                <li>
+                                    <a href="#">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="#">Help Center</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className=" nunito footer-group">
+                            <h4>Company</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Term of Use</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className=" nunito footer-group">
+                            <h4>Follow Us</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="#">LinkedIn</a>
+                                </li>
+                                <li>
+                                    <a href="#">Instagram</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="footer-copy nunito">
+                        © 2025 CosmicWeb. All rights reserved.
+                    </div>
+                </div>
+
+                <div
+                    className="footer-side footer-side--right"
+                    aria-hidden="true"
+                >
+                    <img src="images/right suns.png" alt="right suns" />
+                </div>
+            </div>
+        </footer>
+    );
+}
+
 function App() {
     return (
         <div>
@@ -283,6 +351,7 @@ function App() {
             <PrimaryContentSection />
             <SectionDivider />
             <SecondaryContentSection />
+            <Footer />
         </div>
     );
 }
